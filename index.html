@@ -5,14 +5,56 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  />
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+/>
 <link href="./assets/css/style.css" rel="stylesheet">
     <title>Weather Dashboard</title>
 </head>
-
 <body>
-<script src="./assets/js/script.js"></script>    
+    <!--nav bar-->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+        </div>
+    </nav>
+    <!--nav bar end-->
+    <!--city weather search-->
+    <main class="flex-row justify-space-between">
+        <div class="class-12 col-md-4">
+          <div class="card">
+            <h3 class="card-header text-uppercase">Search for a City</h3>
+            <form id="user-form" class="card-body">
+              <label class="form-label" for="username">City</label>
+              <input name="City" id="city" type="text" autofocus="true" class="form-input" placeholder="Toronto"/>
+              <button type="submit" class="btn btn-dark">Search</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-12 d-flex flex-column">
+          <h3>SEARCH HISTORY</h3>
+          <div id="search-history" class="d-flex flex-column">
+
+          </div>
+        </div>
+        <div class="container-sm" id="weather-container" class="col-8 d-flex flex-row">
+          <div id="current-weather" class="col-12 border border-dark rounded p-4">
+    
+          </div>
+          <div class="container-sm" id="forecast-container" class="col-12">
+              <h3>5-Day Forecast:</h3>
+              <div id="five-day" class="row justify-content-between md-4">
+    
+              </div>
+          </div>
+      </div>
+    </div> 
+    </main>
+    <!--end city weather search--> 
+       
+     
+  
+
+  <script src="./assets/js/script.js"></script>     
 </body>
 </html>
