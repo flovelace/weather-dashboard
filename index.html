@@ -20,50 +20,61 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     </nav>
     <!--nav bar end-->
     <!--city weather search-->
-    <main class="flex-row justify-space-between">
-
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-
-            </div>
-            <div class="col-md-8">
-
-            </div>
-          </div>
-        </div>
-
-        <div class="class-12 col-md-4">
-          <div class="card">
-            <h3 class="card-header text-uppercase">Search for a City</h3>
-            <form id="user-form" class="card-body">
-              <label class="form-label" for="username">City</label>
-              <input name="City" id="city" type="text" autofocus="true" class="form-input" placeholder="Toronto"/>
-              <button type="submit" class="btn btn-dark">Search</button>
-            </form>
-          </div>
-        </div>
-        <div class="col-12 d-flex flex-column">
-          <h3>SEARCH HISTORY</h3>
-          <div id="search-history" class="d-flex flex-column">
-
-          </div>
-        </div>
-        <div class="container-sm" id="weather-container" class="col-8 d-flex flex-row">
-          <div id="current-weather" class="col-12 border border-dark rounded p-4">
-            
-          </div>
-          <div class="container-sm" id="forecast-container" class="col-12">
-              <h3>5-Day Forecast:</h3>
-              <div id="five-day" class="row justify-content-between md-4">
-                
-              </div>
-          </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-lg-3">
+      <div class="card">
+        <h3 class="card-header">Search for a City:</h3>
+        <form id="user-form" class="card-body">
+          <label class="form-label" for="cityname"></label>
+          <input name="cityname" id="cityname" type="text" autofocus="true" placeholder="Toronto" class="form-input"/>
+          <button type="submit" class="btn btn-block bg-primary mt-3 text-white">
+            submit
+          </button>
+        </form>
       </div>
-    </div> 
-    </main>
-    <!--end city weather search--> 
-       
+    <!--city weather search end-->
+    <!--history of searched cities-->
+    <ul id="city-search-history" class="list text-center"></ul>
+    </div>
+    <div class="col-sm-12 col-lg-9">
+      <!--shows current weather searched-->
+      <div class="row m-2 border border-dark rounded">
+        <div class="col-sm-12" id="searched-weather">
+          <div style="display: flex">
+            <h3 class="city-name mb-1 mt-1" id="current-city">placeholder</h3>
+            <img class="weatherIcon" id="weatherIcon">
+          </div>
+          <p>Temp: <span class="temp" id="celcious"></span></p>
+          <p>Humidity: <span class="hum" id="humidity"></span></p>
+          <p>wind: <span class="wind" id="wnd"></span></p>
+          <p>UV Index: <span class="uv-i" id="uv-indx"></span></p>
+        </div>
+      </div>
+      <!--end the current weather searched box-->
+      <!--begin the five day forecast-->
+      <h3 class="m-3">Five-Day Forecast</h3>
+      <div class="row ml-3 mr-3 justify-content-md-between">
+        <div class="col-sm-12 col-lg-3 mt-1">
+          <div class="card bg-dark text-white">
+            <div class="card-header" id="date"></div>
+            <div class="card-body">
+              <div class="image">
+                <img class="apiImage" id="image"/>
+              </div>
+              <p class="temp"></p>
+              <p class="humidity"></p>
+              <p class="wind"></p>
+            </div>
+          </div>
+        </div>
+        <!--four more cards will go in here-->
+      </div>
+    </div>
+  </div>
+</div>
+    
+
      
   
 
