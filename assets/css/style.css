@@ -1,0 +1,14 @@
+.ok {
+    background-color: #f8f688;
+    color: rgb(0, 0, 0);
+  }
+  
+  .bad {
+    background-color: #ff6961;
+    color: white;
+  }
+  
+  .good {
+    background-color: #77dd77;
+    color: white;
+  }

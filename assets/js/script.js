@@ -39,7 +39,7 @@ function search(cityName) {
         // append the humidity
         document.getElementById('humidity').innerHTML = data.main.humidity;
         // append the wind
-        document.getElementById('wnd').innerHTML = data.wind.speed
+        document.getElementById('wnd').innerHTML = data.wind.speed;
         // append the weather icons
         let weatherIcons = data.weather[0].icon;
         document.getElementById('weatherIcon').setAttribute("src", `http://openweathermap.org/img/wn/${weatherIcons}@2x.png`);
@@ -63,6 +63,21 @@ function search(cityName) {
                 console.log(data.daily);
 
                 document.getElementById('uv-indx').innerHTML = data.current.uvi;
+
+                // add the warning colours to the uvi
+                if (document.getElementById('uv-indx').innerHTML < 3) {
+                    document.getElementById('uv-indx').classList.add("good");
+                    document.getElementById('uv-indx').classList.remove("ok");
+                    document.getElementById('uv-indx').classList.remove("bad")
+                } else if (document.getElementById('uv-indx').innerHTML >= 3 && document.getElementById('uv-indx').innerHTML <= 5) {
+                    document.getElementById('uv-indx').classList.remove("good");
+                    document.getElementById('uv-indx').classList.add("ok");
+                    document.getElementById('uv-indx').classList.remove("bad");
+                } else {
+                    document.getElementById('uv-indx').classList.remove("good");
+                    document.getElementById('uv-indx').classList.remove("ok");
+                    document.getElementById('uv-indx').classList.add("bad")
+                }
             })
     })
 }
