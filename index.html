@@ -45,8 +45,8 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             <h3 class="city-name mb-1 mt-1" id="current-city">placeholder</h3>
             <img class="weatherIcon" id="weatherIcon">
           </div>
-          <p>Temp: <span class="temp" id="celcius"></span></p>
-          <p>Humidity: <span class="hum" id="humidity"></span></p>
+          <p>Temp: <span class="temp" id="celcius"></span>°C</p>
+          <p>Humidity: <span class="hum" id="humidity"></span>%</p>
           <p>wind: <span class="wind" id="wnd"></span></p>
           <p>UV Index: <span class="uv-i" id="uv-indx"></span></p>
         </div>
@@ -55,7 +55,59 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       <!--begin the five day forecast-->
       <h3 class="m-3">Five-Day Forecast</h3>
       <div class="row ml-3 mr-3 justify-content-md-between">
-        <div class="col-sm-12 col-lg-3 mt-1">
+        <div class="col-sm-12 col-lg-3 mt-2">
+          <div class="card bg-dark text-white">
+            <div class="card-header" id="date"></div>
+            <div class="card-body">
+              <div class="image">
+                <img class="apiImage" id="image"/>
+              </div>
+              <p class="temp"></p>
+              <p class="humidity"></p>
+              <p class="wind"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-3 mt-2">
+          <div class="card bg-dark text-white">
+            <div class="card-header" id="date"></div>
+            <div class="card-body">
+              <div class="image">
+                <img class="apiImage" id="image"/>
+              </div>
+              <p class="temp"></p>
+              <p class="humidity"></p>
+              <p class="wind"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-3 mt-2">
+          <div class="card bg-dark text-white">
+            <div class="card-header" id="date"></div>
+            <div class="card-body">
+              <div class="image">
+                <img class="apiImage" id="image"/>
+              </div>
+              <p class="temp"></p>
+              <p class="humidity"></p>
+              <p class="wind"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-3 mt-2">
+          <div class="card bg-dark text-white">
+            <div class="card-header" id="date"></div>
+            <div class="card-body">
+              <div class="image">
+                <img class="apiImage" id="image"/>
+              </div>
+              <p class="temp"></p>
+              <p class="humidity"></p>
+              <p class="wind"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-3 mt-2">
           <div class="card bg-dark text-white">
             <div class="card-header" id="date"></div>
             <div class="card-body">
@@ -69,9 +121,8 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           </div>
         </div>
         <!--four more cards will go in here-->
-      </div>
-    </div>
-  </div>
+   
+        
 </div>
     
 
