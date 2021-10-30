@@ -131,18 +131,20 @@ $(document).ready(function() {
         console.log(historyData);
 
         // --> CONVERT back to JSON and UPDATE in LOCALSTORAGE
-        localStorage.setItem('searchedCities', JSON.stringify(historyData));
-        // localStorage.setItem('searchedCities', JSON.stringify(JSON.parse(addCity).concat(this.searchedCities)));
-        
+        localStorage.setItem('searchedCities', JSON.stringify(historyData));        
 
         // --. IF WE want to pull out this data display it on the DOM/Browser
         let item2 = localStorage.getItem('searchedCities');
         let item2_JS = JSON.parse(item2);
         console.log(item2_JS[1].city);
 
-        // for loop 
+        // for loop
+    
+        // creates a button element for each searched city
+            for (let i = 1; i < item2_JS.length; i++) {
 
-        for (let i = 1; i < 10; i++) {
+        }
+
 
     })
 
