@@ -15,21 +15,21 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     <!--nav bar-->
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+          <span class="navbar-brand mb-0 h1 text-center" id="header">Weather Dashboard - Your Five Day Forecast!</span>
         </div>
     </nav>
     <!--nav bar end-->
     <!--city weather search-->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-12 col-lg-3">
-      <div class="card">
+    <div class = "col-sm-12 col-lg-3">
+      <div class="card" id="search-card">
         <h3 class="card-header">Search for a City:</h3>
         <form id="user-form" class="card-body">
           <label class="form-label" for="cityname"></label>
           <input name="cityname" id="cityname" type="text" autofocus="true" placeholder="Toronto" class="form-input"/>
-          <button type="submit" class="btn btn-block bg-primary mt-3 text-white">
-            submit
+          <button type="submit" class="btn btn-block bg-primary mt-3 bg-dark text-white">
+            Submit
           </button>
         </form>
       </div>
@@ -39,22 +39,21 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     </div>
     <div class="col-sm-12 col-lg-9">
       <!--shows current weather searched-->
-      <div class="row m-2 border border-dark rounded">
+      <div class ="row m-2 border border-dark rounded">
         <div class="col-sm-12" id="searched-weather">
           <div style="display: flex">
-            <h3 class="city-name mb-1 mt-1" id="current-city">Search for a City to begin</h3>
+            <h3 class="city-name mb-1 mt-1" id="current-city">Search for a City to Begin!</h3>
             <img class="weatherIcon" id="weatherIcon">
           </div>
-          <p>Temperature: <span class="temp" id="celcius"></span>°C</p>
-          <p>Humidity: <span class="hum" id="humidity"></span>%</p>
-          <p>Wind Speed: <span class="wind" id="wnd"></span> m/sec</p>
-          <p>UV Index: <span class="uv-i" id="uv-indx"></span></p>
+          <p><strong>Temperature:</strong> <span class="temp" id="celcius"></span>°C</p>
+          <p><strong>Humidity:</strong> <span class="hum" id="humidity"></span>%</p>
+          <p><strong>Speed:</strong> <span class="wind" id="wnd"></span> m/sec</p>
+          <p><strong>UV Index:</strong> <span class="uv-i" id="uv-indx"></span></p>
         </div>
       </div>
       <!--end the current weather searched box-->
       <!--begin the five day forecast-->
       <div class="col-8">
-        <h2 id="dash-title"></h2>
         <div class="row">
             <div id="current" class="col-6">
                 

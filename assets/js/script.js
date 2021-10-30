@@ -1,7 +1,16 @@
 $(document).ready(function() {
 
     var apiKey = 'f9aba52981da94981ae6d22cd818ec62'; //APIKey
-    var searchHistory = []; //empty array to hold search history
+
+    let userHistory;
+
+    if(localStorage.getItem("searchedCities")) {
+        userHistory = localStorage.getItem("searchedCities");
+    } else { // if blank empty array
+        // IF NOT Exists we CREATE / Initalize a NEW DATA SET 
+         //   localStorage.setItem("searchedCities", JSON.stringify([]));
+            localStorage.setItem("searchedCities", "[]");
+        }
 
     //search city function
     function search(cityName) {
@@ -61,8 +70,7 @@ $(document).ready(function() {
                         console.log(dailyData);
 
                     for (let i = 0; i < 5; i++) {
-                    // console.log(dailyData[i]);
-                    //let dateTime = dailyData[i].dt;
+
                     var date = moment.unix(dailyData[i].dt).format("ddd, Do, YYYY");
                     let forecastTemp = dailyData[i].temp.day;
                     console.log(Math.floor(forecastTemp));
@@ -74,7 +82,7 @@ $(document).ready(function() {
                     var card = $("<div>").addClass("card border m-1 w-40")
                     var cardTitle = $("<h5>").text(date);
                     var list = $("<ul>").addClass("list-group");
-                    var showTemp = $("<li id='temp'>").addClass("list-group-item").text(Math.floor(forecastTemp)+"°C");
+                    var showTemp = $("<li>").addClass("list-group-item").text(Math.floor(forecastTemp)+"°C");
                     var showHumid = $("<li>").addClass("list-group-item").text(humidity);
                     var showWind = $("<li>").addClass("list-group-item").text(windSpeed);
                     var cardImage = $("<img>").addClass("list-group-item").attr("src",`http://openweathermap.org/img/wn/${dailyWeatherIcon}@2x.png`);
@@ -93,10 +101,48 @@ $(document).ready(function() {
     document.getElementById('user-form').addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // Clearout any ELEMENT in the FORECAST Container
+        // Clearing out out container for the new search
         $("#five-day").empty();
         let userInput = document.getElementById("cityname").value;
         search(userInput);
+
+        // --> Creating a temp Object for local storage
+        let searchedCities = {
+            city: userInput
+        }
+
+        // JSON --> [ "{ "city": "Toronto" }" ]
+    
+        //localStorage.setItem('searchedCities', JSON.stringify(searchedCities));
+        // --> 
+        let historyData;
+        if(!userHistory) {
+            // IF NOT EXSITS -> will be an empty array
+            let addCity = localStorage.getItem('searchedCities');  // --> IF "searchedCities" exists then grab that data
+            historyData = JSON.parse(addCity);
+        } else {
+            // Convert the STRING (JSON) Data to JavaScript (JS Object)
+            historyData = JSON.parse(userHistory);
+        }
+        console.log(historyData);  // --> [ {city: "Toronto" }]  OR  []
+
+        // --> Add DATA (NEW) to our DATASET 
+        historyData.push(searchedCities);
+        console.log(historyData);
+
+        // --> CONVERT back to JSON and UPDATE in LOCALSTORAGE
+        localStorage.setItem('searchedCities', JSON.stringify(historyData));
+        // localStorage.setItem('searchedCities', JSON.stringify(JSON.parse(addCity).concat(this.searchedCities)));
+        
+
+        // --. IF WE want to pull out this data display it on the DOM/Browser
+        let item2 = localStorage.getItem('searchedCities');
+        let item2_JS = JSON.parse(item2);
+        console.log(item2_JS[1].city);
+
+        // for loop 
+
+        for (let i = 1; i < 10; i++) {
 
     })
 

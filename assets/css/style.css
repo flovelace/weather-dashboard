@@ -1,14 +1,53 @@
+.h1 {
+  font-size: 50px;
+
+}
+
+#current-city {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .ok {
     background-color: #f8f688;
+    border-radius: 10px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
     color: rgb(0, 0, 0);
   }
   
   .bad {
     background-color: #ff6961;
+    border-radius: 10px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
     color: white;
   }
   
   .good {
     background-color: #77dd77;
+    border-radius: 10px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
     color: white;
+  }
+
+  h5 {
+
+    text-align: center;
+  }
+
+  .card {
+    background-color: #e2e2e2;
+  }
+
+  #search-card {
+    background-color: #ffffff;
+  }
+
+  .list-group-item {
+    background-color: #f7f7f7;
   }
