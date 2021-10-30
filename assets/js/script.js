@@ -141,12 +141,12 @@ $(document).ready(function() {
         // for loop
     
         // creates a button element for each searched city
-            for (let i = 0; i < 5; i++) {
+            //for (let i = 0; i < 5; i++) {
 
-                var button = $("<button>").addClass("btn btn-block bg-primary mt-3 bg-dark text-white").text(searchedCities);
-                $('#city-search-history').append(button);
+                //var button = $("<button>").addClass("btn btn-block bg-primary mt-3 bg-dark text-white").html(item2);
+                //$('#city-search-history').append(button);
 
-        }
+       // }
 
 
     })
