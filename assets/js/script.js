@@ -6,6 +6,7 @@ $(document).ready(function() {
 
     if(localStorage.getItem("searchedCities")) {
         userHistory = localStorage.getItem("searchedCities");
+        populateHistory();
     } else { // if blank empty array
         // IF NOT Exists we CREATE / Initalize a NEW DATA SET 
          //   localStorage.setItem("searchedCities", JSON.stringify([]));
@@ -96,7 +97,6 @@ $(document).ready(function() {
         })
     }
 
-
     // submit button
     document.getElementById('user-form').addEventListener("submit", function (e) {
         e.preventDefault();
@@ -104,17 +104,13 @@ $(document).ready(function() {
         // Clearing out out container for the new search
         $("#five-day").empty();
         let userInput = document.getElementById("cityname").value;
-        search(userInput);
+        search(userInput);  // Call the API with city name
 
         // --> Creating a temp Object for local storage
         let searchedCities = {
             city: userInput
         }
-
-        // JSON --> [ "{ "city": "Toronto" }" ]
-    
-        //localStorage.setItem('searchedCities', JSON.stringify(searchedCities));
-        // --> 
+ 
         let historyData;
         if(!userHistory) {
             // IF NOT EXSITS -> will be an empty array
@@ -131,25 +127,28 @@ $(document).ready(function() {
         console.log(historyData);
 
         // --> CONVERT back to JSON and UPDATE in LOCALSTORAGE
-        localStorage.setItem('searchedCities', JSON.stringify(historyData));        
+        localStorage.setItem('searchedCities', JSON.stringify(historyData));      
 
-        // --. IF WE want to pull out this data display it on the DOM/Browser
-        let item2 = localStorage.getItem('searchedCities');
-        let item2_JS = JSON.parse(item2);
-        console.log(item2_JS[1].city);
-
-        // for loop
-    
-        // creates a button element for each searched city
-            //for (let i = 0; i < 5; i++) {
-
-                //var button = $("<button>").addClass("btn btn-block bg-primary mt-3 bg-dark text-white").html(item2);
-                //$('#city-search-history').append(button);
-
-       // }
-
+        document.getElementById("user-form").reset();
+        populateHistory();
 
     })
 
+    function populateHistory() {
+        // Clear out container
+        $("#city-search-history").empty();
+             
+        // --. IF WE want to pull out this data display it on the DOM/Browser
+        let item2 = localStorage.getItem('searchedCities');
+        let item2_JS = JSON.parse(item2);
+    
+        // creates a button element for each searched city
+            for (let i = 0; i < item2_JS.length; i++) {
+                console.log(item2_JS[i]);
+                console.log(item2_JS[i].city);
+                var button = $("<button>").addClass("btn btn-block bg-primary mt-3 bg-dark text-white").html(item2_JS[i].city);
+                $('#city-search-history').append(button);
+        }
+    }
 
 });
